@@ -1,4 +1,4 @@
-name: Build Android APK
+name: Build Release APK
 on:
   push:
     branches:
@@ -33,18 +33,22 @@ jobs:
       - name: Prebuild (Generate Android Folder)
         run: npx expo prebuild --platform android
 
-      - name: Build APK (Debug Version)
+      - name: Generate Keystore (For Signing)
+        run: |
+          keytool -genkeypair -v -keystore android/app/debug.keystore -storepass android -alias androiddebugkey -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
+
+      - name: Build APK (Release Version)
         run: |
           cd android
           chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon
+          ./gradlew assembleRelease --no-daemon
 
       - name: Rename APK
-        run: mv android/app/build/outputs/apk/debug/app-debug.apk 67DB.apk
+        run: mv android/app/build/outputs/apk/release/app-release.apk 67DB-Release.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: 67DB-APK
-          path: 67DB.apk
+          name: 67DB-Release-APK
+          path: 67DB-Release.apk
 
