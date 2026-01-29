@@ -1,0 +1,19 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="512" height="512" rx="100" fill="#4A4E57"/>
+<path d="M311.5 138H179.5C165.14 138 153.5 149.64 153.5 164V428C153.5 442.36 165.14 454 179.5 454H355.5C369.86 454 381.5 442.36 381.5 428V208L311.5 138Z" stroke="#A6E8D6" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M311.5 138V208H381.5" stroke="#A6E8D6" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M153.5 244H241.5" stroke="#A6E8D6" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M153.5 312H241.5" stroke="#A6E8D6" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M153.5 380H241.5" stroke="#A6E8D6" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M241.5 244V380" stroke="#A6E8D6" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M355.5 350C386.15 350 411.5 325.35 411.5 294C411.5 262.65 386.15 238 355.5 238C324.85 238 299.5 262.65 299.5 294C299.5 325.35 324.85 350 355.5 350Z" stroke="#A6E8D6" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M395.5 334L447.5 386" stroke="#A6E8D6" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M355.5 266C368.755 266 379.5 261.523 379.5 256C379.5 250.477 368.755 246 355.5 246C342.245 246 331.5 250.477 331.5 256C331.5 261.523 342.245 266 355.5 266Z" stroke="#A6E8D6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M331.5 274C331.5 279.523 342.245 284 355.5 284C368.755 284 379.5 279.523 379.5 274" stroke="#A6E8D6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M331.5 292C331.5 297.523 342.245 302 355.5 302C368.755 302 379.5 297.523 379.5 292" stroke="#A6E8D6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M331.5 310C331.5 315.523 342.245 320 355.5 320C368.755 320 379.5 315.523 379.5 310" stroke="#A6E8D6" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M405.5 150C413.784 150 420.5 156.716 420.5 165V185C420.5 193.284 413.784 200 405.5 200C397.216 200 390.5 193.284 390.5 185V165C390.5 156.716 397.216 150 405.5 150Z" fill="#A6E8D6"/>
+<path d="M420.5 175L445.5 200" stroke="#A6E8D6" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="267.5" y="560" text-anchor="middle" font-family="Arial" font-size="100" font-weight="bold" fill="#A6E8D6">67 DB</text>
+</svg>
+
