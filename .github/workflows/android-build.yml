@@ -12,14 +12,12 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # FIX 1: Node 20 use kar rahe hain (Error fix karne ke liye)
       - name: Setup Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
-      # FIX 2: Gradle Cache (Build Speed boost karega)
       - name: Setup Java & Gradle Cache
         uses: gradle/actions/setup-gradle@v3
         with:
@@ -36,22 +34,31 @@ jobs:
       - name: Prebuild (Generate Android Folder)
         run: npx expo prebuild --platform android
 
-      # Temporary Keystore banayenge Signing ke liye
       - name: Generate Release Keystore
         run: |
           keytool -genkeypair -v -keystore release.keystore -alias releasekey -keyalg RSA -keysize 2048 -validity 10000 -storepass android -keypass android -dname "CN=Romeo,O=67DB,C=PK"
 
-      # Build command optimized for speed (Max Memory 4GB)
       - name: Build APK (Release)
         run: |
           cd android
           chmod +x gradlew
           ./gradlew assembleRelease -x lint --no-daemon -Dorg.gradle.jvmargs="-Xmx4g -XX:MaxMetaspaceSize=1g"
 
-      # APK ko Sign karna (Zaroori hai install hone ke liye)
-      - name: Sign APK
+      # FIX: Ye step khud APK dhoond kar sign kare ga
+      - name: Sign APK (Auto-Detect)
         run: |
-          jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore release.keystore -storepass android -keypass android -signedjar 67DB-Fast.apk android/app/build/outputs/apk/release/app-release-unsigned.apk releasekey
+          # APK file dhoondo (chahe naam jo bhi ho)
+          APK_FILE=$(find android/app/build/outputs/apk/release -name "*.apk" | head -n 1)
+          
+          if [ -z "$APK_FILE" ]; then
+            echo "Error: Koi APK file nahi mili!"
+            exit 1
+          fi
+          
+          echo "Found APK: $APK_FILE"
+          
+          # Sign karo
+          jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore release.keystore -storepass android -keypass android -signedjar 67DB-Fast.apk "$APK_FILE" releasekey
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
